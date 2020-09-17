@@ -99,6 +99,7 @@ def add_bento_sub_command(cli):
         '-o', '--output', type=click.Choice(['json', 'yaml', 'table', 'wide'])
     )
     def get(bento, limit, ascending_order, print_location, output):
+        print("get called")
         if ':' in bento:
             name, version = bento.split(':')
         else:
@@ -120,6 +121,7 @@ def add_bento_sub_command(cli):
             _print_bento_info(get_bento_result.bento, output)
         elif name:
             output = output or 'table'
+            #print("repo is ", yatai_client.repository)
             list_bento_versions_result = yatai_client.repository.list(
                 bento_name=name, limit=limit, ascending_order=ascending_order
             )

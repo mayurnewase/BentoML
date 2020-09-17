@@ -78,6 +78,7 @@ def load_saved_bundle_config(bundle_path):
             return load_saved_bundle_config(local_bundle_path)
 
     try:
+        print("trying to load from local bundle path \n")
         return SavedBundleConfig.load(os.path.join(bundle_path, "bentoml.yml"))
     except FileNotFoundError:
         raise BentoMLException(
@@ -155,6 +156,8 @@ def load_bento_service_class(bundle_path):
     model_service_class._bento_service_bundle_path = bundle_path
     # Set cls._version, service instance can access it via svc.version
     model_service_class._bento_service_bundle_version = metadata["service_version"]
+    
+    print("service class loaded ", dir(model_service_class), "\n")
 
     return model_service_class
 

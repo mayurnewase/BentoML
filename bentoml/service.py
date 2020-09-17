@@ -267,6 +267,7 @@ def api_decorator(
                 )
 
             handler = args[0](*args[1:], output_adapter=output, **kwargs)
+            
         else:
             assert isinstance(input, BaseInputAdapter), (
                 "API input parameter must be an instance of any classes inherited from "
@@ -274,6 +275,8 @@ def api_decorator(
             )
             handler = input
             handler._output_adapter = output
+
+        print("handler for api is ", handler, "\n\n") #this is FileInput() object
 
         setattr(func, "_is_api", True)
         setattr(func, "_handler", handler)
@@ -466,7 +469,9 @@ def save(bento_service, base_path=None, version=None):
         yatai_client = YataiClient(yatai_service)
     else:
         yatai_client = YataiClient()
-
+    
+    print("saving bento service ", bento_service, "\n\n")
+    #assert(0)
     return yatai_client.repository.upload(bento_service, version)
 
 
@@ -536,6 +541,7 @@ class BentoService:
     def __init__(self):
         # When creating BentoService instance from a saved bundle, set version to the
         # version specified in the saved bundle
+        logger.error("service constructor\n\n\n")
         self._bento_service_version = self.__class__._bento_service_bundle_version
 
         self._config_artifacts()
@@ -561,7 +567,7 @@ class BentoService:
             self.__class__,
             predicate=lambda x: inspect.isfunction(x) or inspect.ismethod(x),
         ):
-            if hasattr(function, "_is_api"):
+            if hasattr(function, "_is_api"):     #@bentoml.api decorator sets it
                 api_name = getattr(function, "_api_name")
                 api_doc = getattr(function, "_api_doc")
                 handler = getattr(function, "_handler")

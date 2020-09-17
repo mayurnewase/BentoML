@@ -53,6 +53,7 @@ def start_dev_server(
     from bentoml.utils import reserve_free_port
 
     bento_service = load(saved_bundle_path)
+    print("bundle path and bento service loaded from it \n", saved_bundle_path, bento_service)
 
     if run_with_ngrok:
         from bentoml.utils.flask_ngrok import start_ngrok

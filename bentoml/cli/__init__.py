@@ -49,4 +49,5 @@ def create_bentoml_cli():
 cli = create_bentoml_cli()
 
 if __name__ == "__main__":
+    print("cli called\n")
     cli()  # pylint: disable=no-value-for-parameter

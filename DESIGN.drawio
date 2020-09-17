@@ -1,0 +1,335 @@
+<mxfile host="b3a2e3ba-232e-42cc-b0aa-3c43d4f3e99c" modified="2020-09-15T09:07:51.963Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.49.0 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="1xfpmKJeQkvLpjveQ5N0" version="13.1.3">
+    <diagram id="6hGFLwfOUW9BJ-s0fimq" name="Page-1">
+        <mxGraphModel dx="1614" dy="1967" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="class BentoService:&lt;br&gt;bentoml/service/BEntoService:&lt;br&gt;base class for making service&lt;br&gt;&lt;br&gt;* config_artifacts(INIT)&lt;br&gt;* config_inference_apis(INIT)&lt;br&gt;* config_environment(INIT)&lt;br&gt;* set_version()&lt;br&gt;* save()&lt;br&gt;* save_to_dir()&lt;br&gt;* pack()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="30" width="200" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="config_artifacts:&lt;br&gt;&amp;gt;&amp;gt;bentoml/service/BentoService&lt;br&gt;&lt;ul&gt;&lt;li&gt;set self.artifacts&lt;/li&gt;&lt;/ul&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="-210" width="180" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=0.85;exitY=0.333;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="2" target="3" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="180" y="120" as="sourcePoint"/>
+                        <mxPoint x="320" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="&lt;br&gt;fils self_inference_apis[]&lt;br&gt;&amp;gt;&amp;gt;bentoml/service//BentoService" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="290" y="-110" width="180" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="endArrow=classic;html=1;exitX=0.9;exitY=0.444;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="2" target="11" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="250" y="190" as="sourcePoint"/>
+                        <mxPoint x="300" y="140" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" target="18" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="210" y="130" as="sourcePoint"/>
+                        <mxPoint x="280" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="for each api in self.api:&lt;br&gt;&amp;gt;&amp;gt;bentoml/service.py/BentoService&lt;br&gt;&lt;ul&gt;&lt;li&gt;add pip dependency&lt;/li&gt;&lt;/ul&gt;&lt;div&gt;for each artifact set these dependencies&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="-30" width="190" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Save():&lt;br&gt;Save and register service in base path(~/bentoml/)&lt;br&gt;&lt;br&gt;yatai_client = YataiClient()&lt;br&gt;yatai_client.repository.upload()" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="130" width="280" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" target="28" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="450" y="190" as="sourcePoint"/>
+                        <mxPoint x="630" y="260" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="28" value="class YataiClient():&lt;br&gt;&amp;gt;&amp;gt;bentoml/yatai/client/init.py/YataiClient&lt;br&gt;&lt;br&gt;client to interact with yatai service&lt;br&gt;&lt;br&gt;has attr:&lt;br&gt;* def init():&lt;br&gt;&amp;nbsp; &amp;nbsp; self.yatai_service -&amp;gt; get_yatai_service()&lt;br&gt;&amp;nbsp; &amp;nbsp; self.bento_repository_api_client = None&lt;br&gt;&amp;nbsp; &amp;nbsp; self.deployment_api_client = None&lt;br&gt;&lt;br&gt;* def repository() -&amp;gt; return BentoRepositoryClient(self.yatai_service)&lt;br&gt;* def deployment() -&amp;gt; return DeploymentAPIClient(self.yatai_service)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="130" width="380" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="def get_yatai_service(channel_address, db_url, repo_base_url, s3_encpoint, default_namespace):&lt;br&gt;&amp;gt;&amp;gt;bentoml.yatai.yatai_service&lt;br&gt;&lt;br&gt;return YataiService(db_url, repo_base_url, s3_endpoint, default_namespace)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1020" y="-110" width="340" height="115" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="" style="endArrow=classic;html=1;exitX=0.632;exitY=0.55;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="28" target="33" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1030" y="290" as="sourcePoint"/>
+                        <mxPoint x="1080" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="36" value="" style="endArrow=classic;html=1;exitX=0.912;exitY=0.717;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="33" target="37" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1400" y="250" as="sourcePoint"/>
+                        <mxPoint x="1450" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="37" value="class YataiService (db_url, repo_base_url, s3_endpoint, default_namespace)&lt;br&gt;&amp;gt;&amp;gt;bentoml/yatai/yatai_service_impl.YataiService&lt;br&gt;&lt;br&gt;has variables:&lt;br&gt;* self.default_namespace&lt;br&gt;* self.repo = Repository(repo_base_url)&lt;br&gt;* self.sess_maker = init_db(db_url)&lt;br&gt;* self.deployment_store = DeploymentStore(self.sess_maker)&lt;br&gt;* self.bento_metadata_store = BentoMetadataStore(self.sess_maker)&lt;br&gt;&lt;br&gt;has attributes:&lt;br&gt;* HealtCheck (rquest, context)&lt;br&gt;* GetYataiServiceVersion (request, context)&lt;br&gt;* ApplyDeployment (request, context)&lt;br&gt;* DeleteDeployment (request, context)&lt;br&gt;* GetDeployment (request, context)&lt;br&gt;* DescribeDeployment (request, context)&lt;br&gt;* ListDeployment (request, context)&lt;br&gt;* AddBento (request, context)&lt;br&gt;* UpdateBento (request, context)&lt;br&gt;* DangerouslyDeleteBento (request, context)&lt;br&gt;* GetBento (request, context)&lt;br&gt;* ListBento (request, context)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1400" y="-170" width="420" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="class BentoRepositoryApiClient&lt;br&gt;&amp;gt;&amp;gt;bentoml/yatai/client/bento_repository_api.py/BentoRepositoryApiClient&lt;br&gt;&lt;br&gt;Api to access yatai service remotely or locally&lt;br&gt;&lt;br&gt;has attributes:&lt;br&gt;* def upload (bento_service, version)&lt;br&gt;* def _upload_bento_service (bento_service, saved_bento_path)&lt;br&gt;* def _update_bento_upload_progress (bento_service_meatadata, status, percent)&lt;br&gt;* def get (bento_name, bento_version)&lt;br&gt;* def list (bento_name, offset, limit, order_by, ascending_order)&lt;br&gt;* def dangerously_delete_bento (name, version)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1006" y="211" width="470" height="199" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="" style="endArrow=classic;html=1;exitX=0.974;exitY=0.85;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="28" target="44" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="910" y="450" as="sourcePoint"/>
+                        <mxPoint x="960" y="400" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="46" value="class DeploymentApiClient:&lt;br&gt;&amp;gt;&amp;gt;bentoml/yatai/client/deployment_api.py/DeploymentApiClient&lt;br&gt;&lt;br&gt;has attributes:&lt;br&gt;* def __init__ (yatai_service)&lt;br&gt;* def list (limit, offset, labels_query, namespace, is_all_namespaces, operator, order_by, ascending_order)&lt;br&gt;* def get (namespace, name): return yatai_service.GetDeployment(GetDeploymentRequest(name, namespace))&lt;br&gt;* def describe (namespace, name)&lt;br&gt;* def delete ()&lt;br&gt;* def create ()&lt;br&gt;* def apply ()&lt;br&gt;* def _wait_deployment_action_complete&lt;br&gt;* def create_sagemaker_deployment&lt;br&gt;* def update_sagemaker_deployment&lt;br&gt;* def list_sagemaker_deployment&lt;br&gt;* create_lambda_deployment&lt;br&gt;* update_lambda_deployment&lt;br&gt;* list_lambda_deployments&lt;br&gt;* create_azure_functions_deploymet&lt;br&gt;* update_azure_functions_deployment&lt;br&gt;* list_azure_functions_deployment" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1020" y="520" width="790" height="300" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="" style="endArrow=classic;html=1;exitX=0.974;exitY=0.9;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="28" target="46" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="900" y="440" as="sourcePoint"/>
+                        <mxPoint x="950" y="390" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="49" value="&lt;span&gt;def list (namespace, name):&lt;br&gt;return yatai_service.ListDeployments (&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;ListDeploymentRequest (&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;limit, offset, labels_query, namespace, operator, order_by, ascending_order&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;)&lt;br&gt;)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1840" y="520" width="450" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="" style="endArrow=classic;html=1;exitX=0.722;exitY=0.267;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="46" target="49" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1910" y="730" as="sourcePoint"/>
+                        <mxPoint x="1960" y="680" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="54" value="def get (namespace, name):&lt;br&gt;return yatai_service.GetDeployment (&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;GetDeploymentRequest (name, namespace)&lt;br&gt;)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1840" y="640" width="330" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="" style="endArrow=classic;html=1;" parent="1" target="54" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1620" y="620" as="sourcePoint"/>
+                        <mxPoint x="1460" y="900" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="60" value="" style="endArrow=classic;html=1;entryX=-0.003;entryY=0.138;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="61" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1220" y="700" as="sourcePoint"/>
+                        <mxPoint x="1830" y="750" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="61" value="create_sagemaker_deployment (name, bento_name, bento_version, api_name, instance_type, instance_count, timeout, num_of_gunicorn_workers_per_instance, region, namespace, labels, annotations, wait):&lt;br&gt;&lt;br&gt;deployment_pb = Deployment (name, namespace, labels. annotations)&lt;br&gt;deployment_pb.operator = Deployment.AWS_SAGEMAKER&lt;br&gt;//SET OTHER VALUES TO DEPLOYMENY_PB&lt;br&gt;&lt;br&gt;self.create (deploymeny_pb, wait)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1840" y="970" width="660" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="create (deplyment_pb, wait):&lt;br&gt;&lt;br&gt;validate_deployment_pb (deployment_pb)&lt;br&gt;result = yatai_service.ApplyDeployment (ApplyDeploymentRequest (deployment_pb))&lt;br&gt;return get (deplyment_pb.namespace, deployment_pb.namespace)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1830" y="730" width="610" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="Deployment ()&lt;br&gt;generated by protocol buffer compiler" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="2570" y="970" width="260" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" target="67" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="2230" y="1040" as="sourcePoint"/>
+                        <mxPoint x="2620" y="1030" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="70" value="" style="endArrow=classic;html=1;exitX=0.101;exitY=0.467;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="46" target="66" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1930" y="870" as="sourcePoint"/>
+                        <mxPoint x="1980" y="820" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="71" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=-0.003;entryY=0.553;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="61" target="66" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1710" y="1080" as="sourcePoint"/>
+                        <mxPoint x="1760" y="1030" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="1670" y="1090"/>
+                            <mxPoint x="1670" y="880"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="72" value="" style="endArrow=classic;html=1;exitX=0.607;exitY=0.684;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.386;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="66" target="54" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="2490" y="860" as="sourcePoint"/>
+                        <mxPoint x="2540" y="810" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="2340" y="860"/>
+                            <mxPoint x="2230" y="680"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="73" value="" style="endArrow=classic;html=1;exitX=0.65;exitY=0.722;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="2" target="24" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="200" y="320" as="sourcePoint"/>
+                        <mxPoint x="250" y="270" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="74" value="def&amp;nbsp; ApplyDeployment (request)&lt;br&gt;&lt;br&gt;//apply degault namespace if not set in request&lt;br&gt;validate_deployment_pb&lt;br&gt;previous_deployment&amp;nbsp; = deplyment_store.get (request.deployment.name, request.deployment.namespace)&lt;br&gt;deployment_store.insert_or_update (request.deployment)&lt;br&gt;operator = get_deployment_operator(request.deployment) //get operator class like lambdaDeploymentOperator, sagemaker&lt;br&gt;operator.add (request.deployment)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1970" y="100" width="680" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" value="" style="endArrow=classic;html=1;exitX=0.476;exitY=0.583;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="37" target="74" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1620" y="130" as="sourcePoint"/>
+                        <mxPoint x="1950" y="-60" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="76" value="ApplyDeploymentRequest ()&lt;br&gt;generated by protocol buffer compiler" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="2500" y="700" width="240" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="" style="endArrow=classic;html=1;exitX=0.525;exitY=0.55;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="66" target="76" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="2450" y="680" as="sourcePoint"/>
+                        <mxPoint x="2500" y="630" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="78" value="" style="endArrow=classic;html=1;exitX=0.311;exitY=0.55;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="66" target="74" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="2330" y="690" as="sourcePoint"/>
+                        <mxPoint x="2040" y="260" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="2770" y="580"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="80" value="class DeploymentStore ()&lt;br&gt;&amp;gt;&amp;gt;bentoml/deployment/store.py&lt;br&gt;&lt;br&gt;has variables:&lt;br&gt;* sess_maker = sessmaker&lt;br&gt;&lt;br&gt;has attributes:&lt;br&gt;* init (sess_maker)&lt;br&gt;* insert (deployment_pb)&lt;br&gt;* insert_or_update (deployment_pb)&lt;br&gt;* update_deployment (name, namespace)&lt;br&gt;* get (name, namespace)&lt;br&gt;* delete (name, namespace)&lt;br&gt;* list (namespace, operator, labels_query, offset, limit, order_by, ascending_order)&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1970" y="-330" width="460" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0.333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="37" target="80" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1810" y="-160" as="sourcePoint"/>
+                        <mxPoint x="1860" y="-210" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="1890" y="-50"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="82" value="" style="endArrow=classic;html=1;exitX=0.353;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.304;entryY=0.75;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="74" target="80" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="2530" y="-150" as="sourcePoint"/>
+                        <mxPoint x="2580" y="-200" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="2580" y="60"/>
+                            <mxPoint x="2550" y="-210"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="84" value="" style="endArrow=classic;html=1;exitX=0.435;exitY=0.625;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="80" target="85" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="2300" y="140" as="sourcePoint"/>
+                        <mxPoint x="2480" y="-290" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="85" value="def sess.query (deployment_pb);&lt;br&gt;&lt;br&gt;sess.add (deployment_pb)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="2500" y="-330" width="300" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" value="def init_db (db_url):&lt;br&gt;&amp;gt;&amp;gt;bentoml/yatai/db.py&lt;br&gt;&lt;br&gt;engine = sqlalchemy.create_engine()&lt;br&gt;return engine" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1970" y="-420" width="252" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" value="" style="endArrow=classic;html=1;exitX=0.452;exitY=0.306;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="37" target="87" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1740" y="-150" as="sourcePoint"/>
+                        <mxPoint x="1790" y="-200" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="1860" y="-60"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="89" value="" style="endArrow=classic;html=1;exitX=0.524;exitY=0.25;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="37" target="91" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1700" y="-140" as="sourcePoint"/>
+                        <mxPoint x="1840" y="-330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="91" value="class Repository (BaseRepository)&lt;br&gt;&amp;gt;&amp;gt;bentoml/yatai/repository/repository.py&lt;br&gt;&lt;br&gt;has varaibles:&lt;br&gt;_repo&lt;br&gt;&lt;br&gt;has attributes:&lt;br&gt;* init (base_ur;, s3_endpoint_url)&lt;br&gt;&amp;nbsp; &amp;nbsp;base_url -&amp;gt; local/ s3 url&lt;br&gt;&amp;nbsp; &amp;nbsp;s3_endpoint_url -&amp;gt; config s3 repo to talk to specific s3 endpoint&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; if is_s3_url: _repo = s3Repository (base_url, s3_endpoint_url)&lt;br&gt;&amp;nbsp; &amp;nbsp; else: _repo = LocalRepository (base_url)&lt;br&gt;&lt;br&gt;* add (bento_name, benro_version):&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;_repo.add (bento_name, bento_version)&lt;br&gt;&lt;br&gt;* get (bento_name, bento_version)&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;_repo.get (bento_name, bento_version)&lt;br&gt;&lt;br&gt;* dangerously_delete (bento_name, bento_version)&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;_repo.dangerously_delete (bento_name, bento_version)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1935" y="-810" width="400" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" value="class s3Repository (BaseRepository):&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="2525" y="-800" width="285" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="93" value="class LocalRepository (BaseRepository):&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="2525" y="-650" width="285" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="94" value="" style="endArrow=classic;html=1;exitX=0.875;exitY=0.528;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="91" target="92" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="2400" y="-470" as="sourcePoint"/>
+                        <mxPoint x="2450" y="-520" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="95" value="" style="endArrow=classic;html=1;exitX=0.575;exitY=0.556;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="91" target="93" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="2400" y="-480" as="sourcePoint"/>
+                        <mxPoint x="2450" y="-530" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="102" value="class AwsLambdaDeploymentOperator (DeploymentOperatorBase)&lt;br&gt;&lt;br&gt;def add (deployment_pb):&lt;br&gt;create_s3_bucket_if_not_exisist (deployment_pb, bento_pb, bento_path)&lt;br&gt;_deploy_lambda_function (deployment_pb, bento_service_metadata, deployment_spec, lambda_s3_bucket, lamdba_deployment_config, bento_path)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="2680" y="-80" width="840" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="103" value="" style="endArrow=classic;html=1;exitX=0.279;exitY=0.762;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="1" source="74" target="102" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="2770" y="60" as="sourcePoint"/>
+                        <mxPoint x="2820" y="10" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="2680" y="130"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="108" value="" style="endArrow=classic;html=1;exitX=0.426;exitY=0.553;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="44" target="109" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1460" y="420" as="sourcePoint"/>
+                        <mxPoint x="1510" y="370" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="109" value="def upload (bento_service, version):&lt;br&gt;save_to_dir (bento_service, tmpdir, version, silent = True)" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1590" y="330" width="330" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="111" value="" style="endArrow=classic;html=1;exitX=0.607;exitY=0.778;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="24" target="109" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="500" y="400" as="sourcePoint"/>
+                        <mxPoint x="550" y="350" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="780" y="530"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="114" value="" style="endArrow=none;dashed=1;html=1;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="580" y="910" as="sourcePoint"/>
+                        <mxPoint x="590" y="-430" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="115" value="&lt;font style=&quot;font-size: 18px&quot;&gt;bentoml&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="-390" width="320" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="116" value="" style="endArrow=none;dashed=1;html=1;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="3550" y="1160" as="sourcePoint"/>
+                        <mxPoint x="3540" y="-1140" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="117" value="&lt;font style=&quot;font-size: 24px&quot;&gt;bentoml/yatai&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="2530" y="-1140" width="250" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="119" value="" style="endArrow=classic;html=1;exitX=0.732;exitY=0.799;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.405;entryY=0.944;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="44" target="37" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1510" y="290" as="sourcePoint"/>
+                        <mxPoint x="1560" y="240" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="1530" y="370"/>
+                            <mxPoint x="1790" y="90"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="121" value="class BentoMetadataStore:&lt;br&gt;&amp;gt;&amp;gt;bentoml/yatai/repository/metadata_store.py&lt;br&gt;&lt;br&gt;has variables:&lt;br&gt;* init (sess_maker)&lt;br&gt;* list (bento_name, offset, limit, order_by, ascending_order) -&amp;gt; query Bentos table in sqlite" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="1970" y="-60" width="550" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="122" value="" style="endArrow=classic;html=1;exitX=0.881;exitY=0.389;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="37" target="121" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1860" y="10" as="sourcePoint"/>
+                        <mxPoint x="1910" y="-40" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="123" value="" style="endArrow=classic;html=1;entryX=0.021;entryY=0.786;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="121" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1560" y="160" as="sourcePoint"/>
+                        <mxPoint x="1920" y="150" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="126" value="&lt;h1&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;repository: contain bento name and version in user's bentoml repo.Its either local filesystem or s3 or MiIO&lt;/font&gt;&lt;/h1&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;meradata store is sqlite db&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="3090" y="-870" width="240" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="127" value="def AddBento (request, context):&lt;br&gt;bento_pb = bento_metadata_store.get (request,bento_name, request.bento_version)&lt;br&gt;if not bento_pb:&lt;br&gt;&amp;nbsp; &amp;nbsp; repo.add (request,bento_name, request.bento_version)&lt;br&gt;&amp;nbsp; &amp;nbsp; bento_metadata_store.add (request.bento_name, request.bento_version, new_bento_uri.uri, new_bento_uri.type)&lt;br&gt;&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="1970" y="270" width="660" height="120" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

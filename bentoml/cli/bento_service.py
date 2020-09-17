@@ -170,9 +170,13 @@ def create_bento_service_cli(pip_installed_bundle_path=None):
     @click.argument("api_name", type=click.STRING)
     @click.argument('run_args', nargs=-1, type=click.UNPROCESSED)
     def run(api_name, run_args, bento=None):
+        print("running api ", api_name, pip_installed_bundle_path, bento, run_args, "\n")
+
         saved_bundle_path = resolve_bundle_path(bento, pip_installed_bundle_path)
 
         api = load_bento_service_api(saved_bundle_path, api_name)
+        print("api to run ", api, "\n\n")
+
         api.handle_cli(run_args)
 
     # Example Usage: bentoml info {BUNDLE_PATH}
@@ -234,6 +238,7 @@ def create_bento_service_cli(pip_installed_bundle_path=None):
         envvar='BENTOML_ENABLE_NGROK',
     )
     def serve(port, bento=None, enable_microbatch=False, run_with_ngrok=False):
+        print("serving locally \n", port, bento, enable_microbatch, run_with_ngrok, pip_installed_bundle_path)
         saved_bundle_path = resolve_bundle_path(bento, pip_installed_bundle_path)
         start_dev_server(saved_bundle_path, port, enable_microbatch, run_with_ngrok)
 

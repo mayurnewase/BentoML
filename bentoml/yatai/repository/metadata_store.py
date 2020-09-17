@@ -243,4 +243,5 @@ class BentoMetadataStore(object):
 
             query_result = query.all()
             result = [_bento_orm_obj_to_pb(bento_obj) for bento_obj in query_result]
+            #print("result from sql ", result)
             return result
